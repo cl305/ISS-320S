@@ -65,18 +65,21 @@ public class ExperimentRunner : MonoBehaviour
 
 		//TODO: use if statements to turn on required stimulus (examine objectName)
 		if (objectName == "stimulus1") {
+			print ("bucket appears now");
 			stimulus1.SetActive (true);
-			stimulus2.SetActive (false);
-			stimulus3.SetActive (false); 
+//			stimulus2.SetActive (false);
+//			stimulus3.SetActive (false); 	
 			currentStimulus = stimulus1;
 		} else if (objectName == "stimulus2") {
-			stimulus1.SetActive (false);
+			print ("tree appears now");
+//			stimulus1.SetActive (false);
 			stimulus2.SetActive (true);
-			stimulus3.SetActive (false); 
+//			stimulus3.SetActive (false); 
 			currentStimulus = stimulus2;
 		} else if (objectName == "stimulus3") {
-			stimulus1.SetActive (false);
-			stimulus2.SetActive (false);
+			print ("car appears now");
+//			stimulus1.SetActive (false);
+//			stimulus2.SetActive (false);
 			stimulus3.SetActive (true); 
 			currentStimulus = stimulus3; 
 		}
@@ -123,13 +126,13 @@ public class ExperimentRunner : MonoBehaviour
 		//if yes, allow rotate currentObject based on keys pressed
 		if(allowUserInput == "true"){
 			if (Input.GetKey ("left")) {
-				transform.Rotate (0, rotationPerSecond * Time.deltaTime, 0); 
+				currentStimulus.transform.Rotate (0, rotationPerSecond * Time.deltaTime, 0); 
 			} else if (Input.GetKey ("right")) {
-				transform.Rotate (0, -1 * rotationPerSecond * Time.deltaTime, 0); 
+				currentStimulus.transform.Rotate (0, -1 * rotationPerSecond * Time.deltaTime, 0); 
 			} else if (Input.GetKey ("up")) {
-				transform.Rotate (rotationPerSecond * Time.deltaTime, 0, 0);
+				currentStimulus.transform.Rotate (rotationPerSecond * Time.deltaTime, 0, 0);
 			} else if (Input.GetKey ("down")) {
-				transform.Rotate (-1 * rotationPerSecond * Time.deltaTime, 0, 0);
+				currentStimulus.transform.Rotate (-1 * rotationPerSecond * Time.deltaTime, 0, 0);
 			}
 		}
 	}
