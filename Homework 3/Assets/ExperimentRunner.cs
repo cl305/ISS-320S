@@ -15,7 +15,7 @@ public class ExperimentRunner : MonoBehaviour
 	string allowUserInput;
 
 	string[] allExperimentLines; //for CSV file
-	int experimentLineIndex=-1;
+	int experimentLineIndex = -1;
 
 	float rotationPerSecond = 10.0f; 
 
@@ -48,7 +48,7 @@ public class ExperimentRunner : MonoBehaviour
 		displayTime =    vals [1];
 		allowUserInput = vals [2];
 
-		Debug.Log ("loaded experiment row: " + objectName + " " + displayTime + " " + allowUserInput);
+//		Debug.Log ("loaded experiment row: " + objectName + " " + displayTime + " " + allowUserInput);
 	}
 
 	float timeLimit;
@@ -62,26 +62,28 @@ public class ExperimentRunner : MonoBehaviour
 		stimulus1.SetActive (false);
 		stimulus2.SetActive (false);
 		stimulus3.SetActive (false);
-
+		print ("hey");
 		//TODO: use if statements to turn on required stimulus (examine objectName)
 		if (objectName == "stimulus1") {
-			print ("bucket appears now");
+			print ("stimulus 1, car appears now");
 			stimulus1.SetActive (true);
 //			stimulus2.SetActive (false);
 //			stimulus3.SetActive (false); 	
 			currentStimulus = stimulus1;
 		} else if (objectName == "stimulus2") {
-			print ("tree appears now");
+			print ("stimulus 2, box appears now");
 //			stimulus1.SetActive (false);
 			stimulus2.SetActive (true);
 //			stimulus3.SetActive (false); 
 			currentStimulus = stimulus2;
 		} else if (objectName == "stimulus3") {
-			print ("car appears now");
+			print ("stimulus 3, tree appears now");
 //			stimulus1.SetActive (false);
 //			stimulus2.SetActive (false);
 			stimulus3.SetActive (true); 
 			currentStimulus = stimulus3; 
+		} else {
+			print ("simulation done");
 		}
 
 		//TODO: use if statements (or combine with above) to assign currentStimulus (examine objectName)
@@ -95,12 +97,13 @@ public class ExperimentRunner : MonoBehaviour
 	void Start ()
 	{   
 		//TODO: if using GameObject.find technique, setup object references here
-		stimulus1 = GameObject.Find ("bucket");
-		stimulus2 = GameObject.Find ("tree");
-		stimulus3 = GameObject.Find ("car"); 
+//		stimulus1 = GameObject.Find ("car");
+//		stimulus2 = GameObject.Find ("box");
+//		stimulus3 = GameObject.Find ("tree"); 
 
 		loadCSV ();
 		setupStimulus (); //start off with the first stimulus
+		currentStimulus = stimulus1;
 	}
 
 	float timeElapsed=0.0f;
@@ -126,13 +129,13 @@ public class ExperimentRunner : MonoBehaviour
 		//if yes, allow rotate currentObject based on keys pressed
 		if(allowUserInput == "true"){
 			if (Input.GetKey ("left")) {
-				currentStimulus.transform.Rotate (0, rotationPerSecond * Time.deltaTime, 0); 
-			} else if (Input.GetKey ("right")) {
 				currentStimulus.transform.Rotate (0, -1 * rotationPerSecond * Time.deltaTime, 0); 
+			} else if (Input.GetKey ("right")) {
+				currentStimulus.transform.Rotate (0, 1 * rotationPerSecond * Time.deltaTime, 0); 
 			} else if (Input.GetKey ("up")) {
-				currentStimulus.transform.Rotate (rotationPerSecond * Time.deltaTime, 0, 0);
+				currentStimulus.transform.Rotate (-1*rotationPerSecond * Time.deltaTime, 0, 0);
 			} else if (Input.GetKey ("down")) {
-				currentStimulus.transform.Rotate (-1 * rotationPerSecond * Time.deltaTime, 0, 0);
+				currentStimulus.transform.Rotate (rotationPerSecond * Time.deltaTime, 0, 0);
 			}
 		}
 	}
