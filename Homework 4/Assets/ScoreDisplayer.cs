@@ -16,7 +16,7 @@ public class ScoreDisplayer : MonoBehaviour {
 			guiStyleSetup = true;
 		}
 		GUI.Label (new Rect (10, 10, 400, 400), "Score: " + score,guiStyle);
-		GUI.contentColor = Color.blue;
+		GUI.color = Color.blue;
 	}
 
 	public void updateScore(int change)
