@@ -2,12 +2,12 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ScoreDisplayer.cs">
     <Files>
-      <File FileName="Assets/ScoreDisplayer.cs" Line="19" Column="25" NotebookId="1" />
-      <File FileName="Assets/CactusClicker.cs" Line="40" Column="27" NotebookId="1" />
+      <File FileName="Assets/ScoreDisplayer.cs" Line="18" Column="26" NotebookId="1" />
+      <File FileName="Assets/CactusClicker.cs" Line="32" Column="4" NotebookId="1" />
       <File FileName="Assets/KeyboardCameraController.cs" Line="31" Column="2" NotebookId="1" />
     </Files>
     <FloatingWindows>
-      <FloatingWindow WindowId="1" X="628" Y="46" Width="812" Height="673">
+      <FloatingWindow WindowId="1" X="628" Y="23" Width="812" Height="673">
         <Files>
           <File FileName="../Homework 3/Assets/ExperimentRunner.cs" Line="103" Column="3" />
         </Files>
